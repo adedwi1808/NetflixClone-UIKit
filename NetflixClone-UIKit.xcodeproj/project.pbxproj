@@ -12,6 +12,10 @@
 		AD6952E02BFA265900DADF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DF2BFA265900DADF50 /* ViewController.swift */; };
 		AD6952E52BFA265B00DADF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E42BFA265B00DADF50 /* Assets.xcassets */; };
 		AD6952E82BFA265B00DADF50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E72BFA265B00DADF50 /* Base */; };
+		AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952F52BFA2F8D00DADF50 /* Networker.swift */; };
+		AD6952F82BFA300400DADF50 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952F72BFA300400DADF50 /* NetworkError.swift */; };
+		AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */; };
+		AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FD2BFA357900DADF50 /* Data+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		AD6952E42BFA265B00DADF50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD6952E72BFA265B00DADF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD6952E92BFA265B00DADF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD6952F52BFA2F8D00DADF50 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		AD6952F72BFA300400DADF50 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
+		AD6952FD2BFA357900DADF50 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			children = (
 				AD6952EF2BFA280100DADF50 /* Application */,
 				AD6952F22BFA28FB00DADF50 /* Domain */,
+				AD6952FC2BFA352F00DADF50 /* Extension */,
+				AD6952F32BFA2E9A00DADF50 /* Infrastructure */,
 				AD6952F12BFA28F500DADF50 /* Presentation */,
 				AD6952F02BFA281800DADF50 /* Resource */,
 				AD6952DF2BFA265900DADF50 /* ViewController.swift */,
@@ -94,6 +104,32 @@
 			children = (
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		AD6952F32BFA2E9A00DADF50 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				AD6952F42BFA2EA800DADF50 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		AD6952F42BFA2EA800DADF50 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AD6952F52BFA2F8D00DADF50 /* Networker.swift */,
+				AD6952F72BFA300400DADF50 /* NetworkError.swift */,
+				AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AD6952FC2BFA352F00DADF50 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AD6952FD2BFA357900DADF50 /* Data+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,8 +203,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD6952E02BFA265900DADF50 /* ViewController.swift in Sources */,
+				AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */,
 				AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */,
 				AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */,
+				AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */,
+				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
+				AD6952F82BFA300400DADF50 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
