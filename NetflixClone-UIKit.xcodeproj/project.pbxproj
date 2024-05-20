@@ -9,20 +9,22 @@
 /* Begin PBXBuildFile section */
 		AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DB2BFA265900DADF50 /* AppDelegate.swift */; };
 		AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */; };
-		AD6952E02BFA265900DADF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DF2BFA265900DADF50 /* ViewController.swift */; };
 		AD6952E52BFA265B00DADF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E42BFA265B00DADF50 /* Assets.xcassets */; };
 		AD6952E82BFA265B00DADF50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E72BFA265B00DADF50 /* Base */; };
 		AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952F52BFA2F8D00DADF50 /* Networker.swift */; };
 		AD6952F82BFA300400DADF50 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952F72BFA300400DADF50 /* NetworkError.swift */; };
 		AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */; };
 		AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FD2BFA357900DADF50 /* Data+Extension.swift */; };
+		ADC52A352BFB769300299564 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A342BFB769300299564 /* Coordinator.swift */; };
+		ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A372BFB77FE00299564 /* MainCoordinator.swift */; };
+		ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3A2BFB78E300299564 /* HomeViewController.swift */; };
+		ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD6952D82BFA265900DADF50 /* NetflixClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetflixClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD6952DB2BFA265900DADF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD6952DF2BFA265900DADF50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD6952E42BFA265B00DADF50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD6952E72BFA265B00DADF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD6952E92BFA265B00DADF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +32,10 @@
 		AD6952F72BFA300400DADF50 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
 		AD6952FD2BFA357900DADF50 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		ADC52A342BFB769300299564 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ADC52A372BFB77FE00299564 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		ADC52A3A2BFB78E300299564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +74,6 @@
 				AD6952F32BFA2E9A00DADF50 /* Infrastructure */,
 				AD6952F12BFA28F500DADF50 /* Presentation */,
 				AD6952F02BFA281800DADF50 /* Resource */,
-				AD6952DF2BFA265900DADF50 /* ViewController.swift */,
 			);
 			path = "NetflixClone-UIKit";
 			sourceTree = "<group>";
@@ -95,6 +100,8 @@
 		AD6952F12BFA28F500DADF50 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ADC52A332BFB768500299564 /* Navigation */,
+				ADC52A392BFB78D200299564 /* Home */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -130,6 +137,32 @@
 				AD6952FD2BFA357900DADF50 /* Data+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		ADC52A332BFB768500299564 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A342BFB769300299564 /* Coordinator.swift */,
+				ADC52A372BFB77FE00299564 /* MainCoordinator.swift */,
+				ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		ADC52A392BFB78D200299564 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A3C2BFB790200299564 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADC52A3C2BFB790200299564 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A3A2BFB78E300299564 /* HomeViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD6952E02BFA265900DADF50 /* ViewController.swift in Sources */,
+				ADC52A352BFB769300299564 /* Coordinator.swift in Sources */,
 				AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */,
 				AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */,
 				AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */,
 				AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */,
+				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
 				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
+				ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */,
+				ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */,
 				AD6952F82BFA300400DADF50 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
