@@ -19,6 +19,9 @@
 		ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A372BFB77FE00299564 /* MainCoordinator.swift */; };
 		ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3A2BFB78E300299564 /* HomeViewController.swift */; };
 		ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */; };
+		ADC52A412BFB7FCE00299564 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A402BFB7FCE00299564 /* HomeViewModel.swift */; };
+		ADC52A442BFB807D00299564 /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A432BFB807D00299564 /* HomeServices.swift */; };
+		ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A472BFB884000299564 /* ConfigurationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,10 @@
 		ADC52A372BFB77FE00299564 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ADC52A3A2BFB78E300299564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		ADC52A402BFB7FCE00299564 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ADC52A432BFB807D00299564 /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		ADC52A462BFB879600299564 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
+		ADC52A472BFB884000299564 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +88,7 @@
 		AD6952EF2BFA280100DADF50 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				ADC52A452BFB875100299564 /* Configuration */,
 				AD6952DB2BFA265900DADF50 /* AppDelegate.swift */,
 				AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */,
 			);
@@ -116,6 +124,7 @@
 		AD6952F32BFA2E9A00DADF50 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				ADC52A422BFB801A00299564 /* Services */,
 				AD6952F42BFA2EA800DADF50 /* Network */,
 			);
 			path = Infrastructure;
@@ -152,6 +161,7 @@
 		ADC52A392BFB78D200299564 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				ADC52A3F2BFB7FC100299564 /* ViewModel */,
 				ADC52A3C2BFB790200299564 /* View */,
 			);
 			path = Home;
@@ -163,6 +173,31 @@
 				ADC52A3A2BFB78E300299564 /* HomeViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ADC52A3F2BFB7FC100299564 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A402BFB7FCE00299564 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADC52A422BFB801A00299564 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A432BFB807D00299564 /* HomeServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ADC52A452BFB875100299564 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				ADC52A462BFB879600299564 /* AppConfig.xcconfig */,
+				ADC52A472BFB884000299564 /* ConfigurationManager.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,11 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC52A352BFB769300299564 /* Coordinator.swift in Sources */,
+				ADC52A412BFB7FCE00299564 /* HomeViewModel.swift in Sources */,
 				AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */,
 				AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */,
 				AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */,
 				AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */,
+				ADC52A442BFB807D00299564 /* HomeServices.swift in Sources */,
 				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
+				ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */,
 				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
 				ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */,
 				ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */,
