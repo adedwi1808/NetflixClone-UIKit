@@ -9,6 +9,7 @@ import Foundation
 
 enum NetworkFactory {
     case sample
+    case trendingMovies
 }
 
 extension NetworkFactory {
@@ -18,6 +19,8 @@ extension NetworkFactory {
         switch self {
         case .sample:
             return ""
+        case .trendingMovies:
+            return "trending/movie/day"
         }
     }
     
@@ -33,9 +36,11 @@ extension NetworkFactory {
     
     // MARK: BASE URL API
     var baseApi: String? {
+        let tmbdBaseURL: String = ConfigurationManager.shared.getValue(forKey: .tmbdBaseURL)
+        
         switch self {
         default:
-            return ""
+            return tmbdBaseURL
         }
     }
     
@@ -44,7 +49,7 @@ extension NetworkFactory {
         var components = URLComponents()
         components.scheme = "https"
         components.host = baseApi
-        var finalParams: [URLQueryItem] = self.queryItems
+        let finalParams: [URLQueryItem] = self.queryItems
         components.queryItems = finalParams
         guard let url = components.url else {
             preconditionFailure("Invalid URL components: \(components)")
@@ -55,7 +60,7 @@ extension NetworkFactory {
     // MARK: HTTP METHOD
     var method: RequestMethod {
         switch self {
-        default:
+        case .sample, .trendingMovies:
             return .get
         }
     }
@@ -71,13 +76,14 @@ extension NetworkFactory {
     // MARK: BODY PARAMS API
     var bodyParam: [String: Any]? {
         switch self {
-        default:return [:]
+        default:
+            return [:]
         }
     }
     
     var boundary: String {
-        let appToken = UserDefaults.standard.string(forKey: "UserToken")
-        let boundary: String = "Boundary-\(appToken ?? "")"
+        let appToken = ConfigurationManager.shared.getValue(forKey: .tmbdApiKey)
+        let boundary: String = "Boundary-\(appToken)"
         return boundary
     }
     
@@ -107,8 +113,8 @@ extension NetworkFactory {
     
     fileprivate func getHeaders(type: HeaderType) -> [String: String] {
         
-        let appToken = UserDefaults.standard.string(forKey: "UserToken")
-        let userToken = UserDefaults.standard.string(forKey: "UserToken")
+        let accessToken = ConfigurationManager.shared.getValue(forKey: .tmbdAccessToken)
+        let appToken = ConfigurationManager.shared.getValue(forKey: .tmbdApiKey)
         
         var header: [String: String]
         
@@ -118,17 +124,15 @@ extension NetworkFactory {
         case .authorized:
             header = ["Content-Type": "application/json",
                       "Accept": "*/*",
-                      "Authorization": "Basic \(userToken)"]
-        case .appToken:
-            header = ["Content-Type": "application/json",
-                      "Accept": "*/*",
-                      "x-lapakibu-token": "\(appToken ?? "")",
-                      "agree-mart-token": "\(appToken ?? "")"]
+                      "Authorization": "Basic \(accessToken)"]
         case .multiPart:
             header = ["Content-Type": "multipart/form-data; boundary=\(boundary)",
                       "Accept": "*/*",
-                      "x-lapakibu-token": "\(appToken ?? "")",
-                      "agree-mart-token": "\(appToken ?? "")"]
+                      "Authorization": "Basic \(accessToken)"]
+        case .appToken:
+            header = ["Content-Type": "application/json",
+                      "Accept": "*/*",
+                      "Authorization": "Basic \(appToken)"]
         }
         return header
     }
@@ -164,7 +168,6 @@ extension NetworkFactory {
     var urlRequestMultiPart: URLRequest {
         var urlRequest = URLRequest(url: self.url)
         urlRequest.httpMethod = method.rawValue
-        let boundary = boundary
         if let header = headers {
             header.forEach { key, value in
                 urlRequest.setValue(value, forHTTPHeaderField: key)
