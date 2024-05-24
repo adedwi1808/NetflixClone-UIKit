@@ -79,8 +79,7 @@ class HomeViewController: UITableViewController {
     
     private func configureTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        let hero = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
-        hero.backgroundColor = .yellow
+        let hero = HeroView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 360))
         tableView.tableHeaderView = hero
     }
 }
