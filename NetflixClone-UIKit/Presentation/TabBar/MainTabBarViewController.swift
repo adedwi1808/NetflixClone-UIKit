@@ -13,7 +13,8 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    
+        tabBar.isTranslucent = false
+        tabBar.tintColor = .white
     }
     
 

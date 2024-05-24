@@ -47,7 +47,16 @@ enum TabBarPage {
         }
     }
 
-    // Add tab icon value
+    func icon() -> String {
+        switch self {
+        case .home:
+            return "house"
+        case .search:
+            return "magnifyingglass"
+        case .favorite:
+            return "star"
+        }
+    }
     
     // Add tab icon selected / deselected color
     
@@ -82,7 +91,6 @@ class TabBarCoordinator: Coordinator {
     private func prepareTabBarController(withTabControllers tabControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabControllers, animated: true)
         tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
-        tabBarController.tabBar.isTranslucent = false
         
         navigationController.viewControllers = [tabBarController]
     }
@@ -92,7 +100,7 @@ class TabBarCoordinator: Coordinator {
         navController.setNavigationBarHidden(false, animated: false)
 
         navController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
-                                                     image: nil,
+                                                     image: UIImage(systemName: page.icon()),
                                                      tag: page.pageOrderNumber())
 
         switch page {
