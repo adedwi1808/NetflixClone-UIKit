@@ -15,6 +15,10 @@
 		AD6952F82BFA300400DADF50 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952F72BFA300400DADF50 /* NetworkError.swift */; };
 		AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */; };
 		AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952FD2BFA357900DADF50 /* Data+Extension.swift */; };
+		AD7DBDFC2C00BC0000403D38 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBDFB2C00BC0000403D38 /* MainTabBarViewController.swift */; };
+		AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBDFE2C00BF6500403D38 /* TabBarCoordinator.swift */; };
+		AD7DBE052C00C3BC00403D38 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */; };
+		AD7DBE072C00C3D700403D38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBE062C00C3D700403D38 /* SearchViewController.swift */; };
 		ADC52A352BFB769300299564 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A342BFB769300299564 /* Coordinator.swift */; };
 		ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A372BFB77FE00299564 /* MainCoordinator.swift */; };
 		ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3A2BFB78E300299564 /* HomeViewController.swift */; };
@@ -35,6 +39,10 @@
 		AD6952F72BFA300400DADF50 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		AD6952FA2BFA307300DADF50 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
 		AD6952FD2BFA357900DADF50 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		AD7DBDFB2C00BC0000403D38 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		AD7DBDFE2C00BF6500403D38 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		AD7DBE062C00C3D700403D38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ADC52A342BFB769300299564 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADC52A372BFB77FE00299564 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ADC52A3A2BFB78E300299564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -108,8 +116,11 @@
 		AD6952F12BFA28F500DADF50 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AD7DBDFA2C00BBC700403D38 /* TabBar */,
 				ADC52A332BFB768500299564 /* Navigation */,
 				ADC52A392BFB78D200299564 /* Home */,
+				AD7DBE002C00C34A00403D38 /* Search */,
+				AD7DBE012C00C35900403D38 /* Favorite */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -148,12 +159,37 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		AD7DBDFA2C00BBC700403D38 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBDFB2C00BC0000403D38 /* MainTabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		AD7DBE002C00C34A00403D38 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBE062C00C3D700403D38 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AD7DBE012C00C35900403D38 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		ADC52A332BFB768500299564 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				ADC52A342BFB769300299564 /* Coordinator.swift */,
 				ADC52A372BFB77FE00299564 /* MainCoordinator.swift */,
 				ADC52A3D2BFB79E900299564 /* HomeCoordinator.swift */,
+				AD7DBDFE2C00BF6500403D38 /* TabBarCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -273,12 +309,16 @@
 				ADC52A352BFB769300299564 /* Coordinator.swift in Sources */,
 				ADC52A412BFB7FCE00299564 /* HomeViewModel.swift in Sources */,
 				AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */,
+				AD7DBE072C00C3D700403D38 /* SearchViewController.swift in Sources */,
+				AD7DBDFC2C00BC0000403D38 /* MainTabBarViewController.swift in Sources */,
 				AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */,
 				AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */,
 				AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */,
 				ADC52A442BFB807D00299564 /* HomeServices.swift in Sources */,
+				AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */,
 				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
 				ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */,
+				AD7DBE052C00C3BC00403D38 /* FavoriteViewController.swift in Sources */,
 				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
 				ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */,
 				ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */,
