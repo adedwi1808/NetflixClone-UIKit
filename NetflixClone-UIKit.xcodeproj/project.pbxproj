@@ -19,6 +19,7 @@
 		AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBDFE2C00BF6500403D38 /* TabBarCoordinator.swift */; };
 		AD7DBE052C00C3BC00403D38 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */; };
 		AD7DBE072C00C3D700403D38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBE062C00C3D700403D38 /* SearchViewController.swift */; };
+		AD7DBE0B2C00DD3900403D38 /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7DBE0A2C00DD3900403D38 /* HeroView.swift */; };
 		ADC52A352BFB769300299564 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A342BFB769300299564 /* Coordinator.swift */; };
 		ADC52A382BFB77FE00299564 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A372BFB77FE00299564 /* MainCoordinator.swift */; };
 		ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC52A3A2BFB78E300299564 /* HomeViewController.swift */; };
@@ -43,6 +44,7 @@
 		AD7DBDFE2C00BF6500403D38 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		AD7DBE062C00C3D700403D38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AD7DBE0A2C00DD3900403D38 /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		ADC52A342BFB769300299564 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADC52A372BFB77FE00299564 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ADC52A3A2BFB78E300299564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		AD6952F12BFA28F500DADF50 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AD7DBE082C00D49400403D38 /* Component */,
 				AD7DBDFA2C00BBC700403D38 /* TabBar */,
 				ADC52A332BFB768500299564 /* Navigation */,
 				ADC52A392BFB78D200299564 /* Home */,
@@ -181,6 +184,22 @@
 				AD7DBE042C00C3BC00403D38 /* FavoriteViewController.swift */,
 			);
 			path = Favorite;
+			sourceTree = "<group>";
+		};
+		AD7DBE082C00D49400403D38 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBE092C00DC7B00403D38 /* Home */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		AD7DBE092C00DC7B00403D38 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBE0A2C00DD3900403D38 /* HeroView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		ADC52A332BFB768500299564 /* Navigation */ = {
@@ -308,6 +327,7 @@
 			files = (
 				ADC52A352BFB769300299564 /* Coordinator.swift in Sources */,
 				ADC52A412BFB7FCE00299564 /* HomeViewModel.swift in Sources */,
+				AD7DBE0B2C00DD3900403D38 /* HeroView.swift in Sources */,
 				AD6952FE2BFA357900DADF50 /* Data+Extension.swift in Sources */,
 				AD7DBE072C00C3D700403D38 /* SearchViewController.swift in Sources */,
 				AD7DBDFC2C00BC0000403D38 /* MainTabBarViewController.swift in Sources */,
