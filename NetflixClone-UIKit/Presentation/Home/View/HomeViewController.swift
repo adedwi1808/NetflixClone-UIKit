@@ -56,7 +56,7 @@ class HomeViewController: UITableViewController {
         let imageView = UIImageView(image: logoImage)
         
         imageView.contentMode = .scaleAspectFit
-        let height: CGFloat = 40
+        let height: CGFloat = 30
         let width = height * (logoImage?.size.width ?? 1) / (logoImage?.size.height ?? 1)
         imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         
@@ -72,9 +72,7 @@ class HomeViewController: UITableViewController {
             action: nil
         )
         
-        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.isTranslucent = false
     }
     
     private func configureTableView() {
