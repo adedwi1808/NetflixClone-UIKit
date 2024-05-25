@@ -76,7 +76,7 @@ class HomeViewController: UITableViewController {
     }
     
     private func configureTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(MovieSectionCell.self, forCellReuseIdentifier: MovieSectionCell.identifier)
         let hero = HeroView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 360))
         tableView.tableHeaderView = hero
     }
@@ -94,23 +94,29 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        switch indexPath.section {
-        case HomeSection.nowPlaying.rawValue:
-            cell.textLabel?.text = HomeSection.nowPlaying.pageTitleValue()
-        case HomeSection.popular.rawValue:
-            cell.textLabel?.text = HomeSection.popular.pageTitleValue()
-        case HomeSection.topRated.rawValue:
-            cell.textLabel?.text = HomeSection.topRated.pageTitleValue()
-        case HomeSection.upcoming.rawValue:
-            cell.textLabel?.text = HomeSection.upcoming.pageTitleValue()
-        case HomeSection.trendingMovie.rawValue:
-            cell.textLabel?.text = HomeSection.trendingMovie.pageTitleValue()
-        case HomeSection.trendingTv.rawValue:
-            cell.textLabel?.text = HomeSection.trendingTv.pageTitleValue()
-        default:
-            cell.textLabel?.text = "--"
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MovieSectionCell.identifier,
+            for: indexPath
+        ) as? MovieSectionCell else {
+            return UITableViewCell()
         }
+        
+        //        switch indexPath.section {
+        //        case HomeSection.nowPlaying.rawValue:
+        //            cell.textLabel?.text = HomeSection.nowPlaying.pageTitleValue()
+        //        case HomeSection.popular.rawValue:
+        //            cell.textLabel?.text = HomeSection.popular.pageTitleValue()
+        //        case HomeSection.topRated.rawValue:
+        //            cell.textLabel?.text = HomeSection.topRated.pageTitleValue()
+        //        case HomeSection.upcoming.rawValue:
+        //            cell.textLabel?.text = HomeSection.upcoming.pageTitleValue()
+        //        case HomeSection.trendingMovie.rawValue:
+        //            cell.textLabel?.text = HomeSection.trendingMovie.pageTitleValue()
+        //        case HomeSection.trendingTv.rawValue:
+        //            cell.textLabel?.text = HomeSection.trendingTv.pageTitleValue()
+        //        default:
+        //            cell.textLabel?.text = "--"
+        //        }
         
         return cell
     }
@@ -123,5 +129,16 @@ extension HomeViewController {
         40
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        210
+    }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
+        header.textLabel?.textColor = .white
+        header.textLabel?.textAlignment = .left
+        header.textLabel?.text = header.textLabel?.text?.capitalized
+    }
 }

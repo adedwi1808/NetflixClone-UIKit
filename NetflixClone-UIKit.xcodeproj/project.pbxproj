@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD45A5A92C0219B500CA62A2 /* HeroFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */; };
+		AD45A5AE2C022C9100CA62A2 /* MovieSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD45A5AD2C022C9100CA62A2 /* MovieSectionCell.swift */; };
 		AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DB2BFA265900DADF50 /* AppDelegate.swift */; };
 		AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */; };
 		AD6952E52BFA265B00DADF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E42BFA265B00DADF50 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFooterView.swift; sourceTree = "<group>"; };
+		AD45A5AD2C022C9100CA62A2 /* MovieSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSectionCell.swift; sourceTree = "<group>"; };
 		AD6952D82BFA265900DADF50 /* NetflixClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetflixClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD6952DB2BFA265900DADF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD45A5AA2C022C3400CA62A2 /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				AD7DBE0A2C00DD3900403D38 /* HeroView.swift */,
+				AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
+		AD45A5AC2C022C4400CA62A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AD45A5AD2C022C9100CA62A2 /* MovieSectionCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		AD6952CF2BFA265900DADF50 = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +218,8 @@
 		AD7DBE092C00DC7B00403D38 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				AD7DBE0A2C00DD3900403D38 /* HeroView.swift */,
-				AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */,
+				AD45A5AC2C022C4400CA62A2 /* Cell */,
+				AD45A5AA2C022C3400CA62A2 /* Hero */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -338,6 +357,7 @@
 				AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */,
 				AD6952FB2BFA307300DADF50 /* NetworkFactory.swift in Sources */,
 				ADC52A442BFB807D00299564 /* HomeServices.swift in Sources */,
+				AD45A5AE2C022C9100CA62A2 /* MovieSectionCell.swift in Sources */,
 				AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */,
 				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
 				ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */,
