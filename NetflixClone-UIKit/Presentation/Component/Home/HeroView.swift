@@ -32,9 +32,26 @@ class HeroView: UIView {
         return gradientLayer
     }()
     
+    private let movieCategoriesLabel: UILabel = {
+       var label = UILabel()
+        label.text = "Categori 1 - Categori 2"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var categories: [String] = [
+        "Category 1",
+        "Category 2",
+        "Category 3"
+    ]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
+        movieCategoriesLabel.text = categories.joined(separator: " • ")
     }
     
     required init?(coder: NSCoder) {
@@ -44,10 +61,12 @@ class HeroView: UIView {
     private func configureView() {
         addSubview(posterImageView)
         addSubview(heroFooterView)
+        addSubview(movieCategoriesLabel)
         
         configurePosterImageView()
         configureHeroFooterView()
         configureGradientLayer()
+        configureCategoriesLabel()
     }
     
     private func configurePosterImageView() {
@@ -70,6 +89,15 @@ class HeroView: UIView {
     
     private func configureGradientLayer() {
         posterImageView.layer.addSublayer(gradientOverlay)
+    }
+    
+    private func configureCategoriesLabel() {
+        NSLayoutConstraint.activate([
+            movieCategoriesLabel.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: -10),
+            movieCategoriesLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            movieCategoriesLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            movieCategoriesLabel.heightAnchor.constraint(equalToConstant: 16)
+        ])
     }
     
     override func layoutSubviews() {
