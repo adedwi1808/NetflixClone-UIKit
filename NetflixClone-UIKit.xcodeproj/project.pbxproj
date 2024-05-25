@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD45A5A92C0219B500CA62A2 /* HeroFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */; };
 		AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DB2BFA265900DADF50 /* AppDelegate.swift */; };
 		AD6952DE2BFA265900DADF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */; };
 		AD6952E52BFA265B00DADF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD6952E42BFA265B00DADF50 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFooterView.swift; sourceTree = "<group>"; };
 		AD6952D82BFA265900DADF50 /* NetflixClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetflixClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD6952DB2BFA265900DADF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD6952DD2BFA265900DADF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7DBE0A2C00DD3900403D38 /* HeroView.swift */,
+				AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */,
 				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
 				ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */,
+				AD45A5A92C0219B500CA62A2 /* HeroFooterView.swift in Sources */,
 				AD7DBE052C00C3BC00403D38 /* FavoriteViewController.swift in Sources */,
 				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
 				ADC52A3E2BFB79E900299564 /* HomeCoordinator.swift in Sources */,

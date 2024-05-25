@@ -17,9 +17,8 @@ class HeroView: UIView {
         return imageView
     }()
     
-    private let heroFooterView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
+    private let heroFooterView: HeroFooterView = {
+        let view = HeroFooterView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -33,7 +32,6 @@ class HeroView: UIView {
         return gradientLayer
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
@@ -45,11 +43,11 @@ class HeroView: UIView {
     
     private func configureView() {
         addSubview(posterImageView)
-        addSubview(posterImageView)
+        addSubview(heroFooterView)
         
         configurePosterImageView()
-        configureGradientLayer()
         configureHeroFooterView()
+        configureGradientLayer()
     }
     
     private func configurePosterImageView() {
@@ -57,16 +55,16 @@ class HeroView: UIView {
             posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             posterImageView.topAnchor.constraint(equalTo: topAnchor),
             posterImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            posterImageView.heightAnchor.constraint(equalToConstant: bounds.height * (8 / 10))
+            posterImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8)
         ])
     }
     
     private func configureHeroFooterView() {
         NSLayoutConstraint.activate([
-            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            posterImageView.topAnchor.constraint(equalTo: topAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            posterImageView.heightAnchor.constraint(equalToConstant: bounds.height * (8 / 10))
+            heroFooterView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            heroFooterView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor),
+            heroFooterView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            heroFooterView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
@@ -79,3 +77,4 @@ class HeroView: UIView {
         gradientOverlay.frame = posterImageView.bounds
     }
 }
+
