@@ -108,7 +108,7 @@ extension HomeViewController {
         }
                 switch indexPath.section {
                 case HomeSection.nowPlaying.rawValue:
-                    break
+                    cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.nowPlayingMovies ?? []))
         //            cell.textLabel?.text = HomeSection.nowPlaying.pageTitleValue()
         //        case HomeSection.popular.rawValue:
         //            cell.textLabel?.text = HomeSection.popular.pageTitleValue()

@@ -7,9 +7,16 @@
 
 import UIKit
 
+enum MovieSectionType {
+    case movie
+    case tvProgram
+}
+
 class MovieSectionCell: UITableViewCell {
     
     static let identifier: String = "MovieSectionCell"
+    
+    private var viewModel: MovieSectionViewModelProtocol?
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,6 +54,12 @@ class MovieSectionCell: UITableViewCell {
         collectionView.delegate = self
     }
     
+    func bind(viewModel: MovieSectionViewModel) {
+        self.viewModel = viewModel
+        
+        collectionView.reloadData()
+    }
+    
 }
 
 extension MovieSectionCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -57,13 +70,27 @@ extension MovieSectionCell: UICollectionViewDelegate, UICollectionViewDataSource
             for: indexPath
         )
         
-        cell.backgroundColor = .red
+        switch viewModel?.type {
+        case .movie:
+            cell.backgroundColor = .yellow
+        case .tvProgram:
+            cell.backgroundColor = .red
+        case .none:
+            cell.backgroundColor = .green
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        guard let viewModel else { return 0}
+        
+        switch viewModel.type {
+        case .movie:
+            return viewModel.movies.count
+        case .tvProgram:
+            return viewModel.tvPrograms.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
