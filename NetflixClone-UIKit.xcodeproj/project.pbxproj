@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD1C39352C033462002E9E08 /* PaginationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C39342C033462002E9E08 /* PaginationResponseModel.swift */; };
+		AD1C39372C0334C5002E9E08 /* MovieResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C39362C0334C5002E9E08 /* MovieResponseModel.swift */; };
+		AD1C39392C0335E7002E9E08 /* TvResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C39382C0335E7002E9E08 /* TvResponseModel.swift */; };
+		AD1C393B2C033712002E9E08 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C393A2C033712002E9E08 /* Movie.swift */; };
+		AD1C393E2C034006002E9E08 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = AD1C393D2C034006002E9E08 /* netfox */; };
 		AD45A5A92C0219B500CA62A2 /* HeroFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */; };
 		AD45A5AE2C022C9100CA62A2 /* MovieSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD45A5AD2C022C9100CA62A2 /* MovieSectionCell.swift */; };
 		AD6952DC2BFA265900DADF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6952DB2BFA265900DADF50 /* AppDelegate.swift */; };
@@ -32,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD1C39342C033462002E9E08 /* PaginationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationResponseModel.swift; sourceTree = "<group>"; };
+		AD1C39362C0334C5002E9E08 /* MovieResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponseModel.swift; sourceTree = "<group>"; };
+		AD1C39382C0335E7002E9E08 /* TvResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvResponseModel.swift; sourceTree = "<group>"; };
+		AD1C393A2C033712002E9E08 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		AD45A5A82C0219B500CA62A2 /* HeroFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFooterView.swift; sourceTree = "<group>"; };
 		AD45A5AD2C022C9100CA62A2 /* MovieSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSectionCell.swift; sourceTree = "<group>"; };
 		AD6952D82BFA265900DADF50 /* NetflixClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetflixClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,12 +73,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD1C393E2C034006002E9E08 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD1C39322C0333F8002E9E08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD1C39332C033403002E9E08 /* Response */,
+				AD1C393A2C033712002E9E08 /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD1C39332C033403002E9E08 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				AD1C39342C033462002E9E08 /* PaginationResponseModel.swift */,
+				AD1C39362C0334C5002E9E08 /* MovieResponseModel.swift */,
+				AD1C39382C0335E7002E9E08 /* TvResponseModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		AD45A5AA2C022C3400CA62A2 /* Hero */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +181,7 @@
 		AD6952F22BFA28FB00DADF50 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AD1C39322C0333F8002E9E08 /* Model */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -293,6 +323,9 @@
 			dependencies = (
 			);
 			name = "NetflixClone-UIKit";
+			packageProductDependencies = (
+				AD1C393D2C034006002E9E08 /* netfox */,
+			);
 			productName = "NetflixClone-UIKit";
 			productReference = AD6952D82BFA265900DADF50 /* NetflixClone-UIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -321,6 +354,9 @@
 				Base,
 			);
 			mainGroup = AD6952CF2BFA265900DADF50;
+			packageReferences = (
+				AD1C393C2C034006002E9E08 /* XCRemoteSwiftPackageReference "netfox" */,
+			);
 			productRefGroup = AD6952D92BFA265900DADF50 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,8 +395,12 @@
 				ADC52A442BFB807D00299564 /* HomeServices.swift in Sources */,
 				AD45A5AE2C022C9100CA62A2 /* MovieSectionCell.swift in Sources */,
 				AD7DBDFF2C00BF6500403D38 /* TabBarCoordinator.swift in Sources */,
+				AD1C39392C0335E7002E9E08 /* TvResponseModel.swift in Sources */,
 				ADC52A3B2BFB78E300299564 /* HomeViewController.swift in Sources */,
+				AD1C393B2C033712002E9E08 /* Movie.swift in Sources */,
+				AD1C39372C0334C5002E9E08 /* MovieResponseModel.swift in Sources */,
 				ADC52A482BFB884000299564 /* ConfigurationManager.swift in Sources */,
+				AD1C39352C033462002E9E08 /* PaginationResponseModel.swift in Sources */,
 				AD45A5A92C0219B500CA62A2 /* HeroFooterView.swift in Sources */,
 				AD7DBE052C00C3BC00403D38 /* FavoriteViewController.swift in Sources */,
 				AD6952F62BFA2F8D00DADF50 /* Networker.swift in Sources */,
@@ -386,6 +426,7 @@
 /* Begin XCBuildConfiguration section */
 		AD6952EA2BFA265B00DADF50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADC52A462BFB879600299564 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -449,6 +490,7 @@
 		};
 		AD6952EB2BFA265B00DADF50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADC52A462BFB879600299564 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -505,6 +547,7 @@
 		};
 		AD6952ED2BFA265B00DADF50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADC52A462BFB879600299564 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -534,6 +577,7 @@
 		};
 		AD6952EE2BFA265B00DADF50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADC52A462BFB879600299564 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -583,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AD1C393C2C034006002E9E08 /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD1C393D2C034006002E9E08 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD1C393C2C034006002E9E08 /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD6952D02BFA265900DADF50 /* Project object */;
 }
