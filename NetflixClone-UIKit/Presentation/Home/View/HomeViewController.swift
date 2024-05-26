@@ -49,6 +49,8 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel?.delegate = self
+        
         configureNavbar()
         configureTableView()
         
@@ -104,9 +106,9 @@ extension HomeViewController {
         ) as? MovieSectionCell else {
             return UITableViewCell()
         }
-        
-        //        switch indexPath.section {
-        //        case HomeSection.nowPlaying.rawValue:
+                switch indexPath.section {
+                case HomeSection.nowPlaying.rawValue:
+                    break
         //            cell.textLabel?.text = HomeSection.nowPlaying.pageTitleValue()
         //        case HomeSection.popular.rawValue:
         //            cell.textLabel?.text = HomeSection.popular.pageTitleValue()
@@ -118,9 +120,10 @@ extension HomeViewController {
         //            cell.textLabel?.text = HomeSection.trendingMovie.pageTitleValue()
         //        case HomeSection.trendingTv.rawValue:
         //            cell.textLabel?.text = HomeSection.trendingTv.pageTitleValue()
-        //        default:
+                default:
+                    break
         //            cell.textLabel?.text = "--"
-        //        }
+                }
         
         return cell
     }
@@ -144,5 +147,11 @@ extension HomeViewController {
         header.textLabel?.textColor = .white
         header.textLabel?.textAlignment = .left
         header.textLabel?.text = header.textLabel?.text?.capitalized
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegateProtocol {
+    func onSuccessGetNowPlaying() {
+        tableView.reloadSections(IndexSet(integer: HomeSection.nowPlaying.rawValue), with: .automatic)
     }
 }

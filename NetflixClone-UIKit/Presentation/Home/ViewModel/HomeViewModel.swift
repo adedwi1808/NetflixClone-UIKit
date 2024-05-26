@@ -7,15 +7,25 @@
 
 import Foundation
 
+protocol HomeViewModelDelegateProtocol: AnyObject {
+    func onSuccessGetNowPlaying()
+}
+
 protocol HomeViewModelProtocol: AnyObject {
     var services: any HomeServicesProtocol { get }
+    var nowPlayingMovies: [Movie] { get set }
+    var delegate: HomeViewModelDelegateProtocol? { get set }
     
     func viewDidLoad()
     func getNowPlaying()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
+    var nowPlayingMovies: [Movie] = []
+    
     let services: any HomeServicesProtocol
+    
+    weak var delegate: HomeViewModelDelegateProtocol?
     
     init(services: any HomeServicesProtocol) {
         self.services = services
@@ -30,7 +40,11 @@ class HomeViewModel: HomeViewModelProtocol {
             guard let self else { return }
             switch result {
             case .success(let response):
-                print(response)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    nowPlayingMovies = response.results?.compactMap({$0.toMovie()}) ?? []
+                    delegate?.onSuccessGetNowPlaying()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
