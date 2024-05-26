@@ -111,8 +111,14 @@ extension Networker {
         }
         
 #if DEBUG
-        let dataString = String(decoding: data, as: UTF8.self)
-        print("Response : \(dataString)")
+        if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+           let prettyData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+           let prettyString = String(data: prettyData, encoding: .utf8) {
+            print("Response: \(prettyString)")
+        } else {
+            let dataString = String(decoding: data, as: UTF8.self)
+            print("Response: \(dataString)")
+        }
 #endif
         
         guard 200..<300 ~= httpResponse.statusCode else {

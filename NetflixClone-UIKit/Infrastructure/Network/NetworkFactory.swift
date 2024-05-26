@@ -8,8 +8,12 @@
 import Foundation
 
 enum NetworkFactory {
-    case sample
     case trendingMovies
+    case trendingTv
+    case nowPlaying
+    case popular
+    case topRated
+    case upcoming
 }
 
 extension NetworkFactory {
@@ -17,10 +21,18 @@ extension NetworkFactory {
     // MARK: URL PATH API
     var path: String {
         switch self {
-        case .sample:
-            return ""
         case .trendingMovies:
-            return "trending/movie/day"
+            return "/3/trending/movie/day"
+        case .trendingTv:
+            return "/3/trending/movie/day"
+        case .nowPlaying:
+            return "/3/movie/now_playing"
+        case .popular:
+            return "/3/movie/popular"
+        case .topRated:
+            return "/3/movie/top_rated"
+        case .upcoming:
+            return "/3/trending/movie/day"
         }
     }
     
@@ -50,6 +62,7 @@ extension NetworkFactory {
         components.scheme = "https"
         components.host = baseApi
         let finalParams: [URLQueryItem] = self.queryItems
+        components.path = path
         components.queryItems = finalParams
         guard let url = components.url else {
             preconditionFailure("Invalid URL components: \(components)")
@@ -60,7 +73,12 @@ extension NetworkFactory {
     // MARK: HTTP METHOD
     var method: RequestMethod {
         switch self {
-        case .sample, .trendingMovies:
+        case    .trendingMovies,
+                .trendingTv,
+                .nowPlaying,
+                .popular,
+                .topRated,
+                .upcoming:
             return .get
         }
     }
@@ -98,8 +116,13 @@ extension NetworkFactory {
     // MARK: HEADER API
     var headers: [String: String]? {
         switch self {
-        default :
-            return getHeaders(type: .anonymous)
+        case    .trendingMovies,
+                .trendingTv,
+                .nowPlaying,
+                .popular,
+                .topRated,
+                .upcoming:
+            return getHeaders(type: .authorized)
         }
     }
     
@@ -124,15 +147,15 @@ extension NetworkFactory {
         case .authorized:
             header = ["Content-Type": "application/json",
                       "Accept": "*/*",
-                      "Authorization": "Basic \(accessToken)"]
+                      "Authorization": "Bearer \(accessToken)"]
         case .multiPart:
             header = ["Content-Type": "multipart/form-data; boundary=\(boundary)",
                       "Accept": "*/*",
-                      "Authorization": "Basic \(accessToken)"]
+                      "Authorization": "Bearer \(accessToken)"]
         case .appToken:
             header = ["Content-Type": "application/json",
                       "Accept": "*/*",
-                      "Authorization": "Basic \(appToken)"]
+                      "Authorization": "Bearer \(appToken)"]
         }
         return header
     }
