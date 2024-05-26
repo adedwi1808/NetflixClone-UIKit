@@ -18,8 +18,11 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = HomeViewController()
+        let services: HomeServicesProtocol = HomeServices()
+        let viewModel: HomeViewModelProtocol = HomeViewModel(services: services)
+        let viewController: HomeViewController = HomeViewController(viewModel: viewModel)
         viewController.coordinator = self
+        
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }

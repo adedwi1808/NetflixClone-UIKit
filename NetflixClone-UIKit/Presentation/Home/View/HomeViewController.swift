@@ -35,8 +35,10 @@ enum HomeSection: Int, CaseIterable {
 
 class HomeViewController: UITableViewController {
     weak var coordinator: Coordinator?
+    private var viewModel: HomeViewModelProtocol?
     
-    init() {
+    init(viewModel: any HomeViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(style: .grouped)
     }
     
@@ -49,6 +51,8 @@ class HomeViewController: UITableViewController {
         
         configureNavbar()
         configureTableView()
+        
+        viewModel?.viewDidLoad()
     }
     
     private func configureNavbar() {

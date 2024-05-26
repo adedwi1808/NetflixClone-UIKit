@@ -10,7 +10,7 @@ import Foundation
 protocol HomeServicesProtocol: AnyObject {
     var networker: NetworkerProtocol { get }
     
-    
+    func getNowPlaying(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void)
 }
 
 final class HomeServices: HomeServicesProtocol {
@@ -20,4 +20,7 @@ final class HomeServices: HomeServicesProtocol {
         self.networker = networker
     }
     
+    func getNowPlaying(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void) {
+        networker.networkTask(type: PaginationResponseModel<MovieResponseModel>.self, endPoint: .nowPlaying, isMultipart: false, completion: completion)
+    }
 }
