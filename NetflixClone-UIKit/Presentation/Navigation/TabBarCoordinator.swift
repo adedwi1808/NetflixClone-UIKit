@@ -96,7 +96,7 @@ class TabBarCoordinator: Coordinator {
     }
       
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
-        let navController = UINavigationController()
+        var navController = UINavigationController()
         navController.setNavigationBarHidden(false, animated: false)
 
         navController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
@@ -105,9 +105,10 @@ class TabBarCoordinator: Coordinator {
 
         switch page {
         case .home:
-            let homeVC = HomeViewController()
-                        
-            navController.pushViewController(homeVC, animated: true)
+            let homeCoordinator = HomeCoordinator(navigationController: navController)
+            homeCoordinator.start()
+            childCoordinators.append(homeCoordinator)
+            navController = homeCoordinator.navigationController
         case .search:
             let searchVC = SearchViewController()
                         
