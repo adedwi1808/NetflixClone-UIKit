@@ -109,17 +109,16 @@ extension HomeViewController {
                 switch indexPath.section {
                 case HomeSection.nowPlaying.rawValue:
                     cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.nowPlayingMovies ?? []))
-        //            cell.textLabel?.text = HomeSection.nowPlaying.pageTitleValue()
-        //        case HomeSection.popular.rawValue:
-        //            cell.textLabel?.text = HomeSection.popular.pageTitleValue()
-        //        case HomeSection.topRated.rawValue:
-        //            cell.textLabel?.text = HomeSection.topRated.pageTitleValue()
-        //        case HomeSection.upcoming.rawValue:
-        //            cell.textLabel?.text = HomeSection.upcoming.pageTitleValue()
-        //        case HomeSection.trendingMovie.rawValue:
-        //            cell.textLabel?.text = HomeSection.trendingMovie.pageTitleValue()
-        //        case HomeSection.trendingTv.rawValue:
-        //            cell.textLabel?.text = HomeSection.trendingTv.pageTitleValue()
+                case HomeSection.popular.rawValue:
+                    cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.popularMovies ?? []))
+                case HomeSection.topRated.rawValue:
+                    cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.topRatedMovies ?? []))
+                case HomeSection.upcoming.rawValue:
+                    cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.upcomingMovies ?? []))
+                case HomeSection.trendingMovie.rawValue:
+                    cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.trendingMovies ?? []))
+//                case HomeSection.trendingTv.rawValue:
+//
                 default:
                     break
         //            cell.textLabel?.text = "--"
@@ -151,6 +150,30 @@ extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegateProtocol {
+    func onSuccessGetPopular() {
+        func onSuccessGetNowPlaying() {
+            tableView.reloadSections(IndexSet(integer: HomeSection.popular.rawValue), with: .automatic)
+        }
+    }
+    
+    func onSuccessGetTopRated() {
+        func onSuccessGetNowPlaying() {
+            tableView.reloadSections(IndexSet(integer: HomeSection.topRated.rawValue), with: .automatic)
+        }
+    }
+    
+    func onSuccessGetTrendingMovies() {
+        func onSuccessGetNowPlaying() {
+            tableView.reloadSections(IndexSet(integer: HomeSection.trendingMovie.rawValue), with: .automatic)
+        }
+    }
+    
+    func onSuccessGetUpcoming() {
+        func onSuccessGetNowPlaying() {
+            tableView.reloadSections(IndexSet(integer: HomeSection.upcoming.rawValue), with: .automatic)
+        }
+    }
+    
     func onSuccessGetNowPlaying() {
         tableView.reloadSections(IndexSet(integer: HomeSection.nowPlaying.rawValue), with: .automatic)
     }

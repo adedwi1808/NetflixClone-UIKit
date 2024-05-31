@@ -24,7 +24,7 @@ extension NetworkFactory {
         case .trendingMovies:
             return "/3/trending/movie/day"
         case .trendingTv:
-            return "/3/trending/movie/day"
+            return "/3/trending/tv/day"
         case .nowPlaying:
             return "/3/movie/now_playing"
         case .popular:
@@ -32,7 +32,7 @@ extension NetworkFactory {
         case .topRated:
             return "/3/movie/top_rated"
         case .upcoming:
-            return "/3/trending/movie/day"
+            return "/3/movie/upcoming"
         }
     }
     
