@@ -25,7 +25,8 @@ class MovieSectionCell: UITableViewCell {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.identifier)
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -65,18 +66,19 @@ class MovieSectionCell: UITableViewCell {
 extension MovieSectionCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "Cell",
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: MovieCell.identifier,
             for: indexPath
-        )
+        ) as? MovieCell else { return UICollectionViewCell()}
+        guard let viewModel else { return UICollectionViewCell()}
         
-        switch viewModel?.type {
+        switch viewModel.type {
         case .movie:
-            cell.backgroundColor = .yellow
+            let path: String = viewModel.movies[indexPath.row].posterPath
+            cell.configure(path: path)
         case .tvProgram:
-            cell.backgroundColor = .red
-        case .none:
-            cell.backgroundColor = .green
+            let path: String = viewModel.tvPrograms[indexPath.row].posterPath
+            cell.configure(path: path)
         }
         
         return cell
@@ -95,5 +97,10 @@ extension MovieSectionCell: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? MovieCell else { return }
+        cell.onDissapear()
     }
 }
