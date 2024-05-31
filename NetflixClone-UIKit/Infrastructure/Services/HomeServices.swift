@@ -15,6 +15,7 @@ protocol HomeServicesProtocol: AnyObject {
     func getTopRated(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void)
     func getTrendingMovies(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void)
     func getUpcoming(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void)
+    func getTrendingTv(completion: @escaping (Result<PaginationResponseModel<TvResponseModel>, NetworkError>) -> Void)
 }
 
 final class HomeServices: HomeServicesProtocol {
@@ -42,5 +43,9 @@ final class HomeServices: HomeServicesProtocol {
     
     func getUpcoming(completion: @escaping (Result<PaginationResponseModel<MovieResponseModel>, NetworkError>) -> Void) {
         networker.networkTask(type: PaginationResponseModel<MovieResponseModel>.self, endPoint: .upcoming, isMultipart: false, completion: completion)
+    }
+    
+    func getTrendingTv(completion: @escaping (Result<PaginationResponseModel<TvResponseModel>, NetworkError>) -> Void) {
+        networker.networkTask(type: PaginationResponseModel<TvResponseModel>.self, endPoint: .trendingTv, isMultipart: false, completion: completion)
     }
 }

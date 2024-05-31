@@ -117,8 +117,8 @@ extension HomeViewController {
                     cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.upcomingMovies ?? []))
                 case HomeSection.trendingMovie.rawValue:
                     cell.bind(viewModel: MovieSectionViewModel(movies: viewModel?.trendingMovies ?? []))
-//                case HomeSection.trendingTv.rawValue:
-//
+                case HomeSection.trendingTv.rawValue:
+                    cell.bind(viewModel: MovieSectionViewModel(tvPrograms: viewModel?.trendingTv ?? []))
                 default:
                     break
         //            cell.textLabel?.text = "--"
@@ -150,28 +150,24 @@ extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegateProtocol {
+    func onSuccessGetTrendingTv() {
+        tableView.reloadSections(IndexSet(integer: HomeSection.trendingTv.rawValue), with: .automatic)
+    }
+    
     func onSuccessGetPopular() {
-        func onSuccessGetNowPlaying() {
-            tableView.reloadSections(IndexSet(integer: HomeSection.popular.rawValue), with: .automatic)
-        }
+        tableView.reloadSections(IndexSet(integer: HomeSection.popular.rawValue), with: .automatic)
     }
     
     func onSuccessGetTopRated() {
-        func onSuccessGetNowPlaying() {
-            tableView.reloadSections(IndexSet(integer: HomeSection.topRated.rawValue), with: .automatic)
-        }
+        tableView.reloadSections(IndexSet(integer: HomeSection.topRated.rawValue), with: .automatic)
     }
     
     func onSuccessGetTrendingMovies() {
-        func onSuccessGetNowPlaying() {
-            tableView.reloadSections(IndexSet(integer: HomeSection.trendingMovie.rawValue), with: .automatic)
-        }
+        tableView.reloadSections(IndexSet(integer: HomeSection.trendingMovie.rawValue), with: .automatic)
     }
     
     func onSuccessGetUpcoming() {
-        func onSuccessGetNowPlaying() {
-            tableView.reloadSections(IndexSet(integer: HomeSection.upcoming.rawValue), with: .automatic)
-        }
+        tableView.reloadSections(IndexSet(integer: HomeSection.upcoming.rawValue), with: .automatic)
     }
     
     func onSuccessGetNowPlaying() {

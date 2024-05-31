@@ -13,6 +13,7 @@ protocol HomeViewModelDelegateProtocol: AnyObject {
     func onSuccessGetTopRated()
     func onSuccessGetTrendingMovies()
     func onSuccessGetUpcoming()
+    func onSuccessGetTrendingTv()
 }
 
 protocol HomeViewModelProtocol: AnyObject {
@@ -22,6 +23,8 @@ protocol HomeViewModelProtocol: AnyObject {
     var topRatedMovies: [Movie] { get set }
     var trendingMovies: [Movie] { get set }
     var upcomingMovies: [Movie] { get set }
+    var trendingTv: [TvProgram] { get set }
+    
     var delegate: HomeViewModelDelegateProtocol? { get set }
     
     func viewDidLoad()
@@ -30,9 +33,11 @@ protocol HomeViewModelProtocol: AnyObject {
     func getTopRated()
     func getTrendingMovies()
     func getUpcoming()
+    func getTrendingTv()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
+    var trendingTv: [TvProgram] = []
     var popularMovies: [Movie] = []
     var topRatedMovies: [Movie] = []
     var trendingMovies: [Movie] = []
@@ -53,6 +58,7 @@ class HomeViewModel: HomeViewModelProtocol {
         getTopRated()
         getTrendingMovies()
         getUpcoming()
+        getTrendingTv()
     }
     
     func getNowPlaying() {
@@ -128,6 +134,22 @@ class HomeViewModel: HomeViewModelProtocol {
                     guard let self else { return }
                     upcomingMovies = response.results?.compactMap({$0.toMovie()}) ?? []
                     delegate?.onSuccessGetUpcoming()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getTrendingTv() {
+        services.getTrendingTv { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    trendingTv = response.results?.compactMap({$0.toTvProgram()}) ?? []
+                    delegate?.onSuccessGetTrendingTv()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
