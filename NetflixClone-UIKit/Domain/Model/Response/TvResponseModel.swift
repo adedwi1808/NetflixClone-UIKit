@@ -38,3 +38,26 @@ struct TvResponseModel: Codable {
         case originCountry = "origin_country"
     }
 }
+
+
+extension TvResponseModel {
+    func toTvProgram() -> TvProgram {
+        return TvProgram(
+            adult: self.adult ?? false,
+            backdropPath: self.backdropPath ?? "",
+            id: id ?? 0,
+            name: self.name ?? "",
+            originalLanguage: self.originalLanguage ?? "",
+            originalName: self.originalName ?? "",
+            overview: self.overview ?? "",
+            posterPath: self.posterPath ?? "",
+            mediaType: self.mediaType ?? "",
+            genreIDS: genreIDS ?? [],
+            popularity: popularity ?? 0.0,
+            firstAirDate: self.firstAirDate ?? "",
+            voteAverage: voteAverage ?? 0.0,
+            voteCount: voteCount ?? 0,
+            originCountry: self.originCountry ?? []
+        )
+    }
+}
